@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Galería · Portfolio{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>Galería</h1>
+    <p class="muted">Obras publicadas.</p>
+  </div>
+
+  {% if artworks %}
+    <div class="grid">
+      {% for artwork in artworks %}
+        <a class="card" href="{{ artwork.get_absolute_url }}">
+          <div class="thumb">
+            <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="card-title">{{ artwork.title }}</div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if is_paginated %}
+      <nav class="pagination">
+        {% if page_obj.has_previous %}
+          <a class="btn" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        <span class="muted">Página {{ page_obj.number }} de {{ paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+          <a class="btn" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  {% else %}
+    <p class="muted">Todavía no hay obras publicadas. Cargalas desde el admin.</p>
+  {% endif %}
+{% endblock %}

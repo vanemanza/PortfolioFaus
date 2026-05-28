@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio · Portfolio{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Ilustración · Portfolio</h1>
+      <p class="lead">
+        Una selección de trabajos recientes y una presentación/cv.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="{% url 'portfolio:artwork_list' %}">Ver galería</a>
+        <a class="btn" href="{% url 'portfolio:about' %}">Ver CV</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

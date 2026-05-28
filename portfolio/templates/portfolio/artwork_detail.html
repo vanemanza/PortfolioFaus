@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ artwork.title }} · Portfolio{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <a class="muted" href="{% url 'portfolio:artwork_list' %}">← Volver</a>
+    <h1>{{ artwork.title }}</h1>
+  </div>
+
+  <article class="detail">
+    <div class="detail-media">
+      <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" />
+    </div>
+    {% if artwork.description %}
+      <div class="detail-text">
+        <p class="lead">{{ artwork.description|linebreaksbr }}</p>
+      </div>
+    {% endif %}
+  </article>
+{% endblock %}

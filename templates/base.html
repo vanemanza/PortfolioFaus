@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/site.css' %}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="{% url 'portfolio:home' %}">Fausto Cardarelli</a>
+        <nav class="nav">
+          <a href="{% url 'portfolio:artwork_list' %}">Galería</a>
+          <a href="{% url 'portfolio:about' %}">CV</a>
+          <a href="{% url 'portfolio:contact' %}">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="muted footer-text">© {% now 'Y' %} · Hecho por VaneDev</p>
+      </div>
+    </footer>
+  </body>
+</html>
