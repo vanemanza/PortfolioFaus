@@ -30,10 +30,9 @@ DEBUG = False
 #DEBUG = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
+    "portfoliofaus.onrender.com",
     "localhost",
-    "192.168.0.43",
-    "*.onrender.com"
+    "127.0.0.1",
 ]
 
 
